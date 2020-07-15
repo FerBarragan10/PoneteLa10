@@ -1,0 +1,24 @@
+.left {
+        display: grid;
+        height: 60%;
+        background-color: transparent;
+        float: left;
+        left:9px;
+        position: fixed;
+        margin-top: 23vh;
+    }  
+
+    .right {
+        display: grid;
+        height: 30%;
+        background-color: transparent;
+        right:0;
+        right:9px;
+        position: fixed;
+        margin-top: 23vh;
+        
+    }  
+    .boton{
+        border-radius: 36px;
+      }
+    

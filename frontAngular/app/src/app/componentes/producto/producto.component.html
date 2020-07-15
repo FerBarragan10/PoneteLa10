@@ -1,0 +1,99 @@
+<div class="conteiner">
+    <h1>Nuevo Producto</h1>
+    <div>
+        <button class="btn btn-outline-warning" [routerLink]="['/MostrarCatalogo']"
+        style="float:left;position:relative;margin-top:-3vh;left:4vw">
+        <i class="fas fa-arrow-left"></i>
+         Atrás
+    </button>
+        <button class="btn btn-outline-success" [routerLink]="['/MostrarCatalogo']" style="    position: relative;margin-top: -3vh;margin-right: 4vw;float: right;">   
+            <i class="fas fa-tshirt"></i>
+            Ver Catalogo
+           </button>
+    </div>
+   
+    <div class="col-6"style="margin:auto">
+      
+    <form action="" (ngSubmit)="guardar(f)" #f="ngForm">
+       
+        <div class="form-group">
+            <label for="">Tipo producto</label>
+                <select type="number" class="form-control" name="idTipo"[(ngModel)]="producto.idTipo">
+                    <option *ngFor="let tipo of tipos" [ngValue]="tipo.id_tipo">{{tipo.id_tipo}}-{{tipo.nombre}}
+                    </option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="">Marca</label>
+                    <select type="number" class="form-control" name="idMarca"[(ngModel)]="producto.idMarca">
+                        <option *ngFor="let marca of marcas" [ngValue]="marca.id_marca">{{marca.id_marca}}-{{marca.nombreMarca}}
+                        </option>
+                    </select>
+                </div>
+        <div class="form-group">
+            <label for="">Club</label>
+            <input type="text" class="form-control" placeholder="Ingrese club"name="club"[(ngModel)]="producto.club"required>
+        </div>
+        <div class="form-group">
+            <label for="">Color</label>
+            <input type="text" class="form-control" placeholder="Ingrese color"name="color"[(ngModel)]="producto.color"required>
+        </div>
+        <div class="form-group">
+            <label for="">vendedor</label>
+                <select type="number" class="form-control" name="idVendedor"[(ngModel)]="producto.idVendedor">
+                    <option *ngFor="let vendedor of vendedores" [ngValue]="vendedor.idVendedor">{{vendedor.nombre}}
+                    </option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="">Talle</label>
+                <br>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"[(ngModel)]="producto.talle" value="S">
+                    <label class="form-check-label" for="inlineRadio1">S</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2"[(ngModel)]="producto.talle" value="M">
+                    <label class="form-check-label" for="inlineRadio2">M</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"[(ngModel)]="producto.talle" value="L">
+                    <label class="form-check-label" for="inlineRadio1">L</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1"[(ngModel)]="producto.talle" value="XL">
+                    <label class="form-check-label" for="inlineRadio1">XL</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" [(ngModel)]="producto.talle" value ="XXL">
+                    <label class="form-check-label" for="inlineRadio1">XXL</label>
+                  </div>
+            </div> 
+<div class="input-group mb-3">
+    <div class="custom-file">
+      <input type="file" class="custom-file-input" id="inputGroupFile02"(change)="seleccionarArchivo($event)">
+      <label class="custom-file-label" for="inputGroupFile02" aria-describedby="inputGroupFileAddon02">Elegir imagen</label>
+    </div>
+ 
+  </div>
+                    <div class="form-group">
+
+        <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" name="isDisponible" [value]="false" [(ngModel)]="producto.isDisponible" id="customCheck1">
+            <label class="custom-control-label"  for="customCheck1">Disponible?</label>
+          </div>
+        </div>  
+        <div class="form-group">
+            <label for="">Precio X unidad?</label>
+            <input type="text" class="form-control" placeholder="Ingrese precio X unidad"name="precioXUnid"[(ngModel)]="producto.precioXUnid"required>
+        </div>
+    
+        <div class="form-group" style="margin:auto;text-align: center;">
+            <button type="submit" [disabled]="!f.valid" class="btn btn-outline-success w-25">
+                <i class="fa fa-save"></i>
+                Cargar producto
+            </button>
+        </div>
+    </form>
+    </div>
+</div>

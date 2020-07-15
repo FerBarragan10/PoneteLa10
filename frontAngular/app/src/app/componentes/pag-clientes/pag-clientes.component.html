@@ -1,0 +1,40 @@
+<div class="container">
+    <div>
+        <button class="btn btn-outline-warning" [routerLink]="['/PagInicio']" style="float:left;position:relative;margin-top:4vh;">
+            <i class="fas fa-home"></i>
+            Inicio
+        </button>
+        <button class="btn btn-outline-success" [routerLink]="['/agregarCliente']" style="float:right;position:relative;margin-top:4vh;">
+            <i class="fas fa-user-plus"></i>
+            Nuevo Cliente
+        </button>
+    </div>
+    
+    <h1 style="text-align:center;">Tabla clientes</h1>
+    
+    <table class="table col-8" style="margin:auto;position:relative;top:13vh">
+        <thead>
+          <tr>
+            <th></th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Apellido</th>
+            <th scope="col">Dirección</th>
+            <th scope="col">Telefono</th>
+            <th scope="col">Correo</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr  *ngFor="let cliente of clientes;let i=index">
+            <img *ngIf="cliente.hombre == '1'" src='../../../assets/user.png' slot="start"style="border-radius:50px;width:30x;height: 30px;position: relative;margin-top: 7px;" />
+            <img *ngIf="cliente.hombre == '0'" src='../../../assets/usuaria.png' slot="start" style="border-radius:50px;width:30x;height:30px;position: relative;margin-top: 7px;"/>
+            <td>{{cliente.nombre|titlecase}}</td>
+            <td>{{cliente.apellido|titlecase}}</td>
+            <td>{{cliente.direccion|titlecase}}</td>
+            <td>{{cliente.telefono|titlecase}}</td>
+            <td>{{cliente.correo}}</td>
+          
+          </tr>
+        </tbody>
+      </table>
+      
+</div>

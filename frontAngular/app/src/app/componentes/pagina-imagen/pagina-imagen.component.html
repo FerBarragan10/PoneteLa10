@@ -1,0 +1,61 @@
+<div class="container">
+    <button class="btn btn-outline-warning" [routerLink]="['/MostrarCatalogo']"
+        style="float:left;position:relative;margin-top:4vh;">
+        <i class="fas fa-arrow-left"></i>
+         Atrás
+    </button>
+    
+    <div class="card bg-light mb-3" style="max-width: 40rem;margin:auto;top:11vh">
+        <div class="card-body">
+            <h1 class="card-title" style="text-align:center;"><span style="font-weight: bold;">{{producto.club}}</span>
+            </h1>
+            <div style="text-align: center;">
+                <img *ngIf="!disponible" src="http://localhost/apiRestSistema/images/{{producto.imagen}}" alt=""
+                    style="margin:auto;text-align:center;width:470px;height:550px;filter: grayscale(1);"
+                    [routerLink]="['/verProducto',producto.idProducto]">
+                    <img *ngIf="disponible" src="http://localhost/apiRestSistema/images/{{producto.imagen}}" alt=""
+                    style="margin:auto;text-align:center;width:470px;height:550px;"
+                    [routerLink]="['/verProducto',producto.idProducto]">
+            </div>
+        </div>
+    </div>
+    <div class="card bg-light mb-3" style="margin: auto;position: relative;bottom: 89vh;float:right;left:108px;">
+        <div class="card-body boxRight">
+            <p class="card-text"><span style="font-weight: bold;">Color:</span> {{producto.color|titlecase}} </p>
+         
+            <p class="card-text"><span style="font-weight: bold;">Marca:</span> {{producto.nombreMarca|titlecase}} </p>
+            <p class="card-text"><span style="font-weight: bold;">Precio por unidad:</span> <span style="font-weight: bolder;font-size:x-large;">{{producto.precioXUnid | currency:'USD':true}}</span></p>
+            
+                <h2 *ngIf="disponible" style="color:#13da40;text-align:center;" >DISPONIBLE</h2>
+            
+                <h2  *ngIf="!disponible"style="color:red;text-align:center;text-decoration: line-through;" >NO DISPONIBLE</h2>
+                <table class="table table-bordered table-dark">
+                    <thead>
+                      <tr>
+                        <!-- <th scope="col">{{producto.talle|titlecase}}</th>-->
+                        <th scope="col">S</th>
+                        <th scope="col">M</th>
+                        <th scope="col">L</th>
+                        <th scope="col">XL</th>
+                        <th scope="col">XXL</th> 
+                      </tr>
+                    </thead>
+                </table> 
+            <div style="text-align:center;">
+                <button class="btn btn-outline-success" [disabled]="!disponible"style="margin:auto;">
+                    <i class="fas fa-shopping-cart"></i>
+                    Agregar al carrito
+                </button>
+            </div>
+
+        </div>
+    </div>
+    
+  <!--  <div style="width:22vw;height:10vh;bottom: 54vh; float: right;left: 30vw;background-color: #3f51b5;position: relative;border: 2px solid #3f51b5;">
+    <div style="top:2vh;left:1vh;">
+        <p class="card-text"><span style="font-weight:bolder;color:white;font-size:x-large"> {{producto.talle|titlecase}}</span> </p>
+
+    </div>
+   </div> -->
+</div>
+

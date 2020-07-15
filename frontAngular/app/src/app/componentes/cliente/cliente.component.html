@@ -1,0 +1,90 @@
+<div class="container">
+  <h1 style=text-align:center;>Nuevo Cliente</h1>
+  <div>
+    <button class="btn btn-outline-warning" [routerLink]="['/MostrarClientes']"
+      style="float:left;position:relative;margin-top:-3vh;left:4vw">
+      <i class="fas fa-arrow-left"></i>
+      Atrás
+    </button>
+    <button class="btn btn-outline-success" [routerLink]="['/MostrarCatalogo']"
+      style="    position: relative;margin-top: -3vh;margin-right: 4vw;float: right;">
+      <i class="fas fa-tshirt"></i>
+      Ver catalogo
+    </button>
+  </div>
+  <div class="col-6" style="margin:auto">
+
+    <form [formGroup]="forma" novalidate="novalidate">
+
+
+
+      <div class="form-group " [ngClass]="{'has-danger': !forma.controls['nombre'].valid}">
+        <label >Nombre</label>
+       
+
+          <input class="form-control" type="text" formControlName="nombre" placeholder="Nombre">
+
+          <div *ngIf="forma.controls['nombre'].errors?.required" style="color: red;
+             font-weight: bolder;" class="form-control-feedback">
+            el nombre es requerido
+          </div>
+          <div *ngIf="forma.controls['nombre'].errors?.minlength" style="color: red;
+                font-weight: bolder;" class="form-control-feedback">
+            minimo 3 caracteres
+         
+        </div>
+      </div>
+
+      <div class="form-group ">
+        <label >Apellido</label>
+          <input class="form-control" type="text" formControlName="apellido" placeholder="Apellido">
+          <div *ngIf="forma.controls['apellido'].errors?.required" style="color: red;
+                   font-weight: bolder;" class="form-control-feedback">
+            el apellido es requerido
+          </div>
+          <div *ngIf="forma.controls['apellido'].errors?.minlength" style="color: red;
+                      font-weight: bolder;" class="form-control-feedback">
+            minimo 3 caracteres
+          </div>
+        
+      </div>
+
+
+      <div class="form-group ">
+        <label >Dirección</label>
+          <input class="form-control" type="text" formControlName="direccion" placeholder="domicilio del cliente">
+        </div>
+      <div class="form-group ">
+        <label >Telefono</label>
+          <input class="form-control" type="text" formControlName="telefono" placeholder="telefono">
+        </div>
+      <div class="form-group ">
+        <label>Email</label>
+
+          <input class="form-control" type="email" formControlName="correo" placeholder="correo">
+        </div>
+
+      <div class="form-group ">
+        <label >Genero:</label>
+          <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" id="customRadioInline1" formControlName="sexo" value="Hombre"
+              class="custom-control-input">
+            <label class="custom-control-label" for="customRadioInline1">Hombre</label>
+          </div>
+          <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" id="customRadioInline2" formControlName="sexo" value="Mujer"
+              class="custom-control-input">
+            <label class="custom-control-label" for="customRadioInline2">Mujer</label>
+          </div>
+        </div>
+      <div class="form-group" style="text-align: center;">
+          <button [disabled]="!forma.valid" type="submit" style="margin: auto;" class="btn btn-outline-success"
+            (click)="agregarCliente(forma)">
+            <i class="fa fa-save"></i>
+            Guardar
+          </button>
+        </div>
+
+    </form>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+<app-navbar></app-navbar>
+<div  class="left"style="text-align:center;">
+  <button class="boton" mat-raised-button  color="primary" style="outline:none;height:50px;" [routerLink]="['/MostrarCamisetas']" >CAMISETAS</button>
+  <button class="boton"  mat-raised-button disabled  style="outline:none;height:50px;" [routerLink]="['/MostrarBuzos']" >BUZOS</button>
+  <button class="boton" mat-raised-button  color="primary"  style="outline:none;height:50px;"[routerLink]="['/MostrarCamperas']" >CAMPERAS</button>
+  <button class="boton" mat-raised-button  color="primary" style="outline:none;height:50px;" [routerLink]="['/MostrarGorras']" >GORRAS</button>
+</div>
+
+<div class="container">
+  <button class="btn btn-outline-warning" [routerLink]="['/PagInicio']" style="float:left;position:relative;margin-top:4vh;">
+    <i class="fas fa-home"></i>
+    Inicio
+</button>
+    <button class="btn btn-outline-success" [routerLink]="['/agregarProducto']" style="position: relative;margin-top: 4vh;left: 69vw;">   
+     <i class="fas fa-tshirt"></i>
+     Nuevo Producto
+    </button>
+    <div class="container"style="margin-top:13vh;">
+   
+      <div class="row m-5" style="margin:auto;position:relative;margin-top:2vh;">
+        <div class="card text-white bg-dark mb-3 tarjeta" *ngFor="let buzo of buzos;let i=index" style="max-width: 30rem;margin-left:2vh;">
+            <img src="http://localhost/apiRestSistema/images/{{buzo.imagen}}" alt=""style="width:300px;height:340px;"[routerLink]="['/verProducto',buzo.idProducto]">        
+            <div class="card-header"style="background-color:#3f51b5;text-align:center;height:14vh;"><h5>{{buzo.club | titlecase}}</h5>
+            <p><span style="font-size:x-large;">{{buzo.precioXUnid | currency:'USD':true}}</span></p>
+            </div>
+          </div>
+    </div>
+
+</div>
+
+</div>
