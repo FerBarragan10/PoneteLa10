@@ -1,8 +1,8 @@
 <div  class="left"style="text-align:center;">
-  <button mat-button  color="primary" style="outline:none;height:50px;" [routerLink]="['/MostrarCamisetas']" >CAMISETAS</button>
-  <button mat-button color="primary"  style="outline:none;height:50px;" [routerLink]="['/MostrarBuzos']" >BUZOS</button>
-  <button mat-button color="primary"   style="outline:none;height:50px;"[routerLink]="['/MostrarCamperas']" >CAMPERAS</button>
-  <button mat-button disabled  style="outline:none;height:50px;" [routerLink]="['/MostrarGorras']" >GORRAS</button>
+  <button class="boton" mat-raised-button  color="primary" style="outline:none;height:50px;" [routerLink]="['/MostrarCamisetas']" >CAMISETAS</button>
+  <button class="boton"  mat-raised-button color="primary"  style="outline:none;height:50px;" [routerLink]="['/MostrarBuzos']" >BUZOS</button>
+  <button class="boton" mat-raised-button  color="primary"  style="outline:none;height:50px;"[routerLink]="['/MostrarCamperas']" >CAMPERAS</button>
+  <button class="boton" mat-raised-button  disabled style="outline:none;height:50px;" [routerLink]="['/MostrarGorras']" >GORRAS</button>
 </div>
 
 <div class="container">
@@ -18,8 +18,8 @@
    
       <div class="row m-5" style="margin:auto;position:relative;margin-top:2vh;">
         <div class="card text-white bg-dark mb-3 tarjeta" *ngFor="let gorra of gorras;let i=index" style="max-width: 30rem;margin-left:2vh;">
-            <img src="http://localhost/apiRestSistema/images/{{gorra.imagen}}" alt=""style="width:300px;height:340px;"[routerLink]="['/verProducto',gorra.idProducto]">        
-            <div class="card-header"style="background-color:black;text-align:center;height:14vh;"><h5>{{gorra.club | titlecase}}</h5>
+            <img src="http://localhost/ponetela10/apiRestSistema/images/{{gorra.imagen}}" alt=""style="width:300px;height:340px;border:1px solid #283163;"[routerLink]="['/verProducto',gorra.idProducto]">        
+            <div class="card-header"style="background-color:#283163;;text-align:center;height:14vh;"><h5>{{gorra.club | titlecase}}</h5>
             <p><span style="font-size:x-large;">{{gorra.precioXUnid | currency:'USD':true}}</span></p>
             </div>
           </div>

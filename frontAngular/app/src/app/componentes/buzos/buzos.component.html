@@ -1,4 +1,3 @@
-<app-navbar></app-navbar>
 <div  class="left"style="text-align:center;">
   <button class="boton" mat-raised-button  color="primary" style="outline:none;height:50px;" [routerLink]="['/MostrarCamisetas']" >CAMISETAS</button>
   <button class="boton"  mat-raised-button disabled  style="outline:none;height:50px;" [routerLink]="['/MostrarBuzos']" >BUZOS</button>
@@ -19,8 +18,8 @@
    
       <div class="row m-5" style="margin:auto;position:relative;margin-top:2vh;">
         <div class="card text-white bg-dark mb-3 tarjeta" *ngFor="let buzo of buzos;let i=index" style="max-width: 30rem;margin-left:2vh;">
-            <img src="http://localhost/apiRestSistema/images/{{buzo.imagen}}" alt=""style="width:300px;height:340px;"[routerLink]="['/verProducto',buzo.idProducto]">        
-            <div class="card-header"style="background-color:#3f51b5;text-align:center;height:14vh;"><h5>{{buzo.club | titlecase}}</h5>
+            <img src="http://localhost/ponetela10/apiRestSistema/images/{{buzo.imagen}}" alt=""style="width:300px;height:340px;border:1px solid #283163;"[routerLink]="['/verProducto',buzo.idProducto]">        
+            <div class="card-header"style="background-color:#283163;text-align:center;height:14vh;"><h5>{{buzo.club | titlecase}}</h5>
             <p><span style="font-size:x-large;">{{buzo.precioXUnid | currency:'USD':true}}</span></p>
             </div>
           </div>
