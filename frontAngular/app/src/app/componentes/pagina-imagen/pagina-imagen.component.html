@@ -10,11 +10,11 @@
             <h1 class="card-title" style="text-align:center;"><span style="font-weight: bold;">{{producto.club}}</span>
             </h1>
             <div style="text-align: center;">
-                <img *ngIf="!disponible" src="http://localhost/apiRestSistema/images/{{producto.imagen}}" alt=""
-                    style="margin:auto;text-align:center;width:470px;height:550px;filter: grayscale(1);"
+                <img *ngIf="!disponible" src="http://localhost/ponetela10/apiRestSistema/images/{{producto.imagen}}" alt=""
+                    style="margin:auto;text-align:center;width:470px;height:550px;filter: grayscale(1);border:1px solid #283163"
                     [routerLink]="['/verProducto',producto.idProducto]">
-                    <img *ngIf="disponible" src="http://localhost/apiRestSistema/images/{{producto.imagen}}" alt=""
-                    style="margin:auto;text-align:center;width:470px;height:550px;"
+                    <img *ngIf="disponible" src="http://localhost/ponetela10/apiRestSistema/images/{{producto.imagen}}" alt=""
+                    style="margin:auto;text-align:center;width:470px;height:550px;border:1px solid #283163"
                     [routerLink]="['/verProducto',producto.idProducto]">
             </div>
         </div>
