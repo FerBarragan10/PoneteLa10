@@ -30,7 +30,15 @@
             <td>{{cliente.nombre|titlecase}}</td>
             <td>{{cliente.apellido|titlecase}}</td>
             <td>{{cliente.direccion|titlecase}}</td>
-            <td>{{cliente.telefono|titlecase}}</td>
+          <td>
+            <div>
+              <a href="https://wa.me/{{cliente.telefono}}">
+                <i class="fab fa-whatsapp fa-w-14 fa-2x" style="color: #3f51b5;"></i>
+              </a>
+         
+            </div>
+            
+            </td>
             <td>{{cliente.correo}}</td>
           
           </tr>
