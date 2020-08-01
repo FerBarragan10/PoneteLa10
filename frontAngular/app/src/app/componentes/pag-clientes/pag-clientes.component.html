@@ -1,10 +1,10 @@
 <div class="container">
     <div>
-        <button class="btn btn-outline-warning" [routerLink]="['/PagInicio']" style="float:left;position:relative;margin-top:4vh;">
+        <button class="btn btn-outline-warning" [routerLink]="['/PagInicio']" style="float:left;left:19px; top: 3vh;position: absolute;border-radius: 25px;">
             <i class="fas fa-home"></i>
             Inicio
         </button>
-        <button class="btn btn-outline-success" [routerLink]="['/agregarCliente']" style="float:right;position:relative;margin-top:4vh;">
+        <button class="btn btn-outline-success" [routerLink]="['/agregarCliente']" style="position: absolute;top: 3vh;right:19px;border-radius: 25px;">
             <i class="fas fa-user-plus"></i>
             Nuevo Cliente
         </button>
@@ -32,10 +32,9 @@
             <td>{{cliente.direccion|titlecase}}</td>
           <td>
             <div style="text-align: center;">
-              <a href="https://wa.me/{{cliente.telefono}}">
-                <i class="fab fa-whatsapp fa-w-14 fa-2x" style="color: #3f51b5;"></i>
+              <a href="https://wa.me/{{cliente.telefono}}" target="_blank">
+                <i class="fab fa-whatsapp-square fa-w-14 fa-2x" style="color: #00a859;"></i>
               </a>
-         
             </div>
             
             </td>

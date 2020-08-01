@@ -20,6 +20,7 @@ import { GorrasComponent } from './componentes/gorras/gorras.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatButtonModule} from '@angular/material/button';
 import { PaginaImagenComponent } from './componentes/pagina-imagen/pagina-imagen.component';
+import { DatosPedidoComponent } from './componentes/datos-pedido/datos-pedido.component';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { PaginaImagenComponent } from './componentes/pagina-imagen/pagina-imagen
     BuzosComponent,
     CamperasComponent,
     GorrasComponent,
-    PaginaImagenComponent
+    PaginaImagenComponent,
+    DatosPedidoComponent
   ],
   imports: [
     BrowserModule,

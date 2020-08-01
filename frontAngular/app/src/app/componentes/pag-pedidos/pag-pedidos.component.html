@@ -1,1 +1,43 @@
-<p>pag-pedidos works!</p>
+<div class="container">
+    <div>
+        <button class="btn btn-outline-warning" [routerLink]="['/PagInicio']" style="float:left;left:19px; top: 3vh;position: absolute;border-radius: 25px;">
+            <i class="fas fa-home"></i>
+            Inicio
+        </button>
+        <button class="btn btn-outline-success" [routerLink]="['/MostrarCatalogo']" style="position: absolute;top: 3vh;right:19px;border-radius: 25px;">
+            <i class="fas fa-tshirt"></i>
+            Ver catalogo
+        </button>
+    </div>
+    
+    <h1 style="text-align:center;">Tabla Pedidos</h1>
+    
+    <table class="table col-8" style="margin:auto;position:relative;top:13vh">
+        <thead>
+          <tr>
+            <th scope="col">Cliente</th>
+            <th scope="col">Producto</th>
+            <th scope="col">Club</th>
+            <th scope="col">Color</th>
+            <th scope="col">Cantidad</th>
+            <th scope="col">precio Total</th>
+            <th scope="col">Talle</th>
+            <th scope="col">Fecha pedido</th>
+           
+          </tr>
+        </thead>
+        <tbody>
+          <tr  *ngFor="let pedido of pedidos;let i=index">
+            <td>{{pedido.nomCliente|titlecase}}</td>
+            <td>{{pedido.nomProducto|titlecase}}</td>
+            <td>{{pedido.club|titlecase}}</td>
+            <td>{{pedido.color|titlecase}}</td>
+            <td>{{pedido.cantidad|titlecase}}</td>
+            <td>{{pedido.costoTotal|titlecase}}</td>
+            <td>{{pedido.talle|titlecase}}</td>
+            <td>{{pedido.fechaPedido| date: 'dd/MM/yyyy'}}</td>       
+          </tr>
+        </tbody>
+      </table>
+      
+</div>

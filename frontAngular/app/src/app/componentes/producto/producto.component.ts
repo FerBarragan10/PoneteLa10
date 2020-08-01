@@ -79,9 +79,9 @@ export class ProductoComponent implements OnInit {
     console.log(this.producto.talle);
     console.log(this.producto.imagen);
     this.servicio.insertProducto(this.producto).subscribe(datos => {
-      console.log("se ha cargado correctamente");     
-      }
-    );
+      console.log("se ha cargado correctamente");   
+     
+    });
   }
 
  

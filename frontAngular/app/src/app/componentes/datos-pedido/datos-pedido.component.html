@@ -1,0 +1,53 @@
+<div class="container">
+  <button class="btn btn-outline-warning" [routerLink]="['/MostrarCatalogo']"
+      style="float:left;left:19px; top: 3vh;position: absolute;border-radius: 25px;">
+      <i class="fas fa-arrow-left"></i>
+       Atrás
+  </button>
+  
+  <div class="card bg-light mb-3" style="max-width: 60rem;margin:auto;top:8vh">
+      <div class="card-body" style="height: 78vh;">
+          <h1 class="card-title" style="text-align:center;"><span style="font-weight: bold;"></span>
+          </h1>
+          <div style="text-align: center;">
+           
+                  <img src="http://localhost/ponetela10/apiRestSistema/images/{{producto.imagen}}" alt=""
+                  style="float:left;margin:auto;text-align:center;width:300px;height:400px;border:1px solid #283163">
+               
+                  <h4 style="text-align:initial;position:relative;left:3vw;font-weight: bolder;">Producto:</h4>
+                  <div style="text-align:initial;position:relative;left:3vw;">
+                  <p class="card-text"><span style="font-weight: bold;">Producto:</span> {{producto.nombre|titlecase}} </p>
+
+                  <p class="card-text"><span style="font-weight: bold;">Color:</span> {{producto.color|titlecase}} </p>
+       
+                  <p class="card-text"><span style="font-weight: bold;">Marca:</span> {{producto.nombreMarca|titlecase}} </p>
+                  <p class="card-text"><span style="font-weight: bold;">Cantidad:</span> {{pedido.cantidad}} </p>
+                  <p class="card-text"><span style="font-weight: bold;">Fecha Pedido:</span> {{pedido.fechaPedido| date: 'dd/MM/yyyy'}} </p>
+
+                  
+                  <p class="card-text"><span style="font-weight: bold;">Precio Total:</span> <span style="font-weight: bolder;font-size:x-large;">{{pedido.costoTotal| currency:'USD':true}}</span></p>
+                 </div>
+                <br>
+                  <h4 style="text-align:initial;position:relative;left:3vw;font-weight: bolder;">Cliente: </h4>
+                  <div style="text-align:initial;position:relative;left:3vw;">
+                  <p class="card-text"><span style="font-weight: bold;">Nombre y Apellido:</span> {{cliente.nombre|titlecase}}  {{cliente.apellido|titlecase}} </p>
+
+                  <p class="card-text"><span style="font-weight: bold;">Dirección:</span> {{cliente.direccion|titlecase}} </p>
+                  <p class="card-text"><span style="font-weight: bold;">Telefono:</span> +{{cliente.telefono|titlecase}} </p>
+                  <p class="card-text"><span style="font-weight: bold;">Correo:</span> {{cliente.correo|titlecase}} </p>
+                 </div>
+                 
+
+                </div>
+      </div>
+  </div>
+  <div class="card bg-light mb-3" style="margin: auto;position: relative;bottom: 89vh;float:right;left:108px;">
+      <div class="card-body boxRight">
+      
+          
+
+      </div>
+  </div>
+
+</div>
+
