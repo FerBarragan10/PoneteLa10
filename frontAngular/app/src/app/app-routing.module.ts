@@ -13,6 +13,8 @@ import { CamperasComponent } from './componentes/camperas/camperas.component';
 import { GorrasComponent } from './componentes/gorras/gorras.component';
 import { PaginaImagenComponent } from './componentes/pagina-imagen/pagina-imagen.component';
 import { DatosPedidoComponent } from './componentes/datos-pedido/datos-pedido.component';
+import { PagVendedoresComponent } from './componentes/pag-vendedores/pag-vendedores.component';
+import { VendedorComponent } from './componentes/vendedor/vendedor.component';
 
 const routes: Routes = [
   {
@@ -44,6 +46,10 @@ const routes: Routes = [
     component:PedidoComponent
   },
   {
+    path:'agregarVendedor',
+    component:VendedorComponent
+  },
+  {
     path:'MostrarPedidos',
     component:PagPedidosComponent
   },
@@ -62,6 +68,10 @@ const routes: Routes = [
   {
     path:'MostrarGorras',
     component:GorrasComponent
+  },
+  {
+    path:'MostrarVendedores',
+    component:PagVendedoresComponent
   },
   {
     path:'verProducto/:id',
