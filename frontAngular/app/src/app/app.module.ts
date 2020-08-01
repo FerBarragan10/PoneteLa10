@@ -21,6 +21,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatButtonModule} from '@angular/material/button';
 import { PaginaImagenComponent } from './componentes/pagina-imagen/pagina-imagen.component';
 import { DatosPedidoComponent } from './componentes/datos-pedido/datos-pedido.component';
+import { PagVendedoresComponent } from './componentes/pag-vendedores/pag-vendedores.component';
+import { VendedorComponent } from './componentes/vendedor/vendedor.component';
 
 
 @NgModule({
@@ -39,7 +41,9 @@ import { DatosPedidoComponent } from './componentes/datos-pedido/datos-pedido.co
     CamperasComponent,
     GorrasComponent,
     PaginaImagenComponent,
-    DatosPedidoComponent
+    DatosPedidoComponent,
+    PagVendedoresComponent,
+    VendedorComponent
   ],
   imports: [
     BrowserModule,
