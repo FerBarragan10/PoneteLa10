@@ -1,0 +1,43 @@
+<div class="container">
+    <div>
+        <button class="btn btn-outline-warning" [routerLink]="['/PagInicio']" style="float:left;left:19px; top: 3vh;position: absolute;border-radius: 25px;">
+            <i class="fas fa-home"></i>
+            Inicio
+        </button>
+        <button class="btn btn-outline-success" [routerLink]="['/agregarVendedor']" style="position: absolute;top: 3vh;right:19px;border-radius: 25px;">
+            <i class="far fa-handshake"></i>
+            Nuevo proveedor
+        </button>
+    </div>
+    
+    <h1 style="text-align:center;">Tabla proveedores</h1>
+    
+    <table class="table col-8" style="margin:auto;position:relative;top:13vh">
+        <thead>
+          <tr>
+          
+            <th scope="col">Nombre</th>
+            <th scope="col"> fb o instagram</th>
+            <th scope="col">telefono</th>
+           
+          </tr>
+        </thead>
+        <tbody>
+          <tr  *ngFor="let vendedor of vendedores;let i=index">
+            <td>{{vendedor.nombre|titlecase}}</td>
+            <td>{{vendedor.nomPagina|titlecase}}</td>
+          <td>
+            <div style="text-align: center;">
+              <a href="https://wa.me/{{vendedor.wsp}}" target="_blank">
+                <i class="fab fa-whatsapp-square fa-w-14 fa-2x" style="color: #00a859;"></i>
+              </a>
+            </div>
+            
+            </td>
+          
+          
+          </tr>
+        </tbody>
+      </table>
+      
+</div>
