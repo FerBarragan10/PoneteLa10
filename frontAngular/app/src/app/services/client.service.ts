@@ -3,6 +3,7 @@ import { HttpClient} from '@angular/common/http';
 import { Producto } from '../models/producto';
 import { Cliente } from '../models/cliente';
 import { Pedido } from '../models/pedido';
+import { Proveedor } from '../models/proveedor';
 
 @Injectable({
   providedIn: 'root'
@@ -42,6 +43,9 @@ getMarcas(){
   insertPedido(pedido:Pedido){
     console.log(pedido);
     return this.http.post('http://localhost/ponetela10/apiRestSistema/apiRest/api/pedido',pedido);
+  }
+  insertProveedor(proveedor:Proveedor){
+    return this.http.post('http://localhost/ponetela10/apiRestSistema/apiRest/api/vendedor',proveedor);
   }
   agregaCliente(cliente:Cliente){
     console.log("llego aca");
