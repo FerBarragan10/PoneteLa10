@@ -12,6 +12,7 @@ export class Producto {
     idMarca:number;
     nombreMarca:string;
     talle:string;
+    nombre:string;
 
     /*constructor(nombre:string,club:string,color:string,idVendedor:number,imagen:any,extension:string,isDisponible:boolean,precioXUnid:number){
        this.nombre=nombre;
