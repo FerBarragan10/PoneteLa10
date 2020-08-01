@@ -12,6 +12,7 @@ import { BuzosComponent } from './componentes/buzos/buzos.component';
 import { CamperasComponent } from './componentes/camperas/camperas.component';
 import { GorrasComponent } from './componentes/gorras/gorras.component';
 import { PaginaImagenComponent } from './componentes/pagina-imagen/pagina-imagen.component';
+import { DatosPedidoComponent } from './componentes/datos-pedido/datos-pedido.component';
 
 const routes: Routes = [
   {
@@ -39,7 +40,7 @@ const routes: Routes = [
     component:PagClientesComponent
   },
   {
-    path:'agregarPedido',
+    path:'agregarPedido/:id',
     component:PedidoComponent
   },
   {
@@ -65,6 +66,10 @@ const routes: Routes = [
   {
     path:'verProducto/:id',
     component:PaginaImagenComponent
+  },
+  {
+    path:'verPedido/:id',
+    component:DatosPedidoComponent
   }
 
 
