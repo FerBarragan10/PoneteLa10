@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient} from '@angular/common/http';
 import { Producto } from '../models/producto';
 import { Cliente } from '../models/cliente';
+import { Pedido } from '../models/pedido';
 
 @Injectable({
   providedIn: 'root'
@@ -10,8 +11,13 @@ export class ClientService {
 
   constructor(private http:HttpClient) { }
 
+  getPedidos(){
+    return this.http.get('http://localhost/ponetela10/apiRestSistema/apiRest/api/verPedido');
+  }
+  getCliente(id:number){
+    return this.http.get('http://localhost/ponetela10/apiRestSistema/apiRest/api/cliente/'+id);
+  }
   getClientes(){
-  
     return this.http.get('http://localhost/ponetela10/apiRestSistema/apiRest/api/cliente');
   }
   getProductos(){
@@ -31,6 +37,11 @@ getMarcas(){
   insertProducto(producto:Producto){
     console.log(producto);
     return this.http.post('http://localhost/ponetela10/apiRestSistema/apiRest/api/producto',producto);
+  }
+
+  insertPedido(pedido:Pedido){
+    console.log(pedido);
+    return this.http.post('http://localhost/ponetela10/apiRestSistema/apiRest/api/pedido',pedido);
   }
   agregaCliente(cliente:Cliente){
     console.log("llego aca");
@@ -52,5 +63,9 @@ getMarcas(){
   getProducto(id:number){
     console.log(id);
     return this.http.get('http://localhost/ponetela10/apiRestSistema/apiRest/api/producto/'+id);
+  }
+  verPedido(id:number){
+    console.log(id);
+    return this.http.get('http://localhost/ponetela10/apiRestSistema/apiRest/api/verPedido/'+id);
   }
 }
