@@ -21,7 +21,11 @@ class tablaModel{
     $sentencia->execute();
     return $sentencia->fetchAll(PDO::FETCH_ASSOC);
   }
-  
+  function getPedidos(){
+    $sentencia = $this->db->prepare( "SELECT cliente.nombre as nomCliente,tipoproducto.nombre as nomProducto,producto.club,producto.color,pedido.* FROM `pedido` join `cliente` on cliente.idCliente=pedido.idCliente join `producto` on producto.idProducto=pedido.idProducto join `tipoproducto` on tipoproducto.id_tipo=producto.idTipo");
+    $sentencia->execute();
+    return $sentencia->fetchAll(PDO::FETCH_ASSOC);
+  }
  
   function getCamisetas(){
     $sentencia = $this->db->prepare("select * from producto where idTipo=1");
@@ -82,15 +86,20 @@ class tablaModel{
     $sentencia->execute(array($idVendedor));
     return $sentencia->fetch(PDO::FETCH_ASSOC);
   }
+  function verPedido($idProducto){
+    $sentencia = $this->db->prepare("select * from pedido where idProducto=?");
+    $sentencia->execute(array($idProducto));
+    return $sentencia->fetch(PDO::FETCH_ASSOC);
+  }
 
   function getProductos(){
-    $sentencia = $this->db->prepare( "SELECT marca.nombreMarca,producto.* FROM `producto` join `marca` on producto.idMarca=marca.id_marca");
+    $sentencia = $this->db->prepare( "SELECT tipoproducto.nombre,marca.nombreMarca,producto.* FROM `producto` join `marca` on producto.idMarca=marca.id_marca join `tipoproducto` on tipoproducto.id_tipo=producto.idTipo");
     $sentencia->execute();
     return $sentencia->fetchAll(PDO::FETCH_ASSOC);
   }
  
   function getProducto($idProducto){
-    $sentencia = $this->db->prepare("SELECT marca.nombreMarca,producto.* FROM `producto` join `marca` on producto.idMarca=marca.id_marca where idProducto=?");
+    $sentencia = $this->db->prepare("SELECT tipoproducto.nombre,marca.nombreMarca,producto.* FROM `producto` join `marca` on producto.idMarca=marca.id_marca join `tipoproducto` on tipoproducto.id_tipo=producto.idTipo where idProducto=?");
     $sentencia->execute(array($idProducto));
     return $sentencia->fetch(PDO::FETCH_ASSOC);
   }
@@ -129,12 +138,11 @@ class tablaModel{
     return $this->getProducto($lastId);
   }
 
-
-
- 
-  function borrarViaje($id_viaje){
-    $sentencia = $this->db->prepare("delete from viaje where id_viaje=?");
-    $sentencia->execute(array($id_viaje));
+  function insertarPedido($idCliente,$talle,$idProducto,$fechaPedido,$costoTotal,$cantidad){
+    $sentencia = $this->db->prepare("INSERT INTO pedido(idCliente,talle,idProducto,fechaPedido,costoTotal,cantidad) VALUES(?,?,?,?,?,?)");
+    $sentencia->execute(array($idCliente,$talle,$idProducto,$fechaPedido,$costoTotal,$cantidad));
+    $lastId =  $this->db->lastInsertId();
+    return $this->getProducto($lastId);
   }
   function ActualizarViaje($email,$fecha_inic,$fecha_fin,$cod_reserva,$compania,$aeronave,$destino,$id_viaje){
     $sentencia = $this->db->prepare( "update viaje set id_juego= ?, fecha = ?, monto = ? where id_apuesta= ?");

@@ -23,6 +23,22 @@ class apiController extends api{
         return $this->jsonResponse(null,404);
       }
     }
+    function verPedido($param=null){
+      if(isset($param)){
+        $idProducto=$param[0];
+        $arreglo=$this->model->verPedido($idProducto);
+        $data=$arreglo;
+      }
+      else{
+        $data=$this->model->getPedidos();
+      }
+      if (isset($data)){
+           return $this->jsonResponse($data,200);
+      }
+      else{
+        return $this->jsonResponse(null,404);
+      }
+    }
 
     function getVendedor($param=null){
       if(isset($param)){
@@ -180,7 +196,14 @@ class apiController extends api{
     $objetoJson = $this->getJsonData();
     $r= $this->model->insertarVendedor($objetoJson->nombre,$objetoJson->nomPagina,$objetoJson->wsp);
     return $this->jsonResponse($r,200);
-}
+  }
+  function insertarPedido($param = null){
+    $objetoJson = $this->getJsonData();
+    $r= $this->model->insertarPedido($objetoJson->idCliente,$objetoJson->talle,$objetoJson->idProducto,$objetoJson->fechaPedido,$objetoJson->costoTotal,$objetoJson->cantidad);
+    return $this->jsonResponse($r,200);
+  
+
+ }
 function insertarTipoProducto($param = null){
   $objetoJson = $this->getJsonData();
   $r= $this->model->insertarTipoProducto($objetoJson->nombre);
