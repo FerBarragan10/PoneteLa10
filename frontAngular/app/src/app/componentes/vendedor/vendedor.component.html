@@ -1,0 +1,66 @@
+<div class="container">
+    <h1 style=text-align:center;>Nuevo proveedor</h1>
+    <div>
+      <button class="btn btn-outline-warning" [routerLink]="['/MostrarClientes']"
+      style="float:left;left:19px; top: 3vh;position: absolute;border-radius: 25px;">
+        <i class="fas fa-arrow-left"></i>
+        Atrás
+      </button>
+      <button class="btn btn-outline-success" [routerLink]="['/MostrarCatalogo']"
+      style="position: absolute;top: 3vh;right:19px;border-radius: 25px;">
+        <i class="far fa-handshake"></i>
+        Ver proveedores
+      </button>
+    </div>
+    <div class="col-6" style="margin:auto">
+  
+      <form [formGroup]="forma" novalidate="novalidate">
+  
+  
+  
+        <div class="form-group " [ngClass]="{'has-danger': !forma.controls['nombre'].valid}">
+          <label >Nombre</label>
+         
+  
+            <input class="form-control" type="text" formControlName="nombre" placeholder="Nombre">
+  
+            <div *ngIf="forma.controls['nombre'].errors?.required" style="color: red;
+               font-weight: bolder;" class="form-control-feedback">
+              el nombre es requerido
+            </div>
+            <div *ngIf="forma.controls['nombre'].errors?.minlength" style="color: red;
+                  font-weight: bolder;" class="form-control-feedback">
+              minimo 3 caracteres
+           
+          </div>
+        </div>
+  
+        <div class="form-group ">
+          <label >Facebook o Instagram</label>
+            <input class="form-control" type="text" formControlName="nomPagina" placeholder="ingrese el facebook o intagram del proveedor">
+            <div *ngIf="forma.controls['nomPagina'].errors?.required" style="color: red;
+                     font-weight: bolder;" class="form-control-feedback">
+              Es requerido
+            </div>
+            <div *ngIf="forma.controls['nomPagina'].errors?.minlength" style="color: red;
+                        font-weight: bolder;" class="form-control-feedback">
+              minimo 3 caracteres
+            </div>
+          
+        </div>
+ 
+        <div class="form-group ">
+          <label >Telefono</label>
+            <input class="form-control" type="text" formControlName="wsp" placeholder="telefono">
+          </div>
+        <div class="form-group" style="text-align: center;">
+            <button [disabled]="!forma.valid" type="submit" style="margin: auto;" class="btn btn-outline-success"
+              (click)="agregarProveedor(forma)">
+              <i class="fa fa-save"></i>
+              Guardar
+            </button>
+          </div>
+  
+      </form>
+    </div>
+  </div>
